@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--DTD - Document Type Definition-->
+<!DOCTYPE catalog [
+        <!ELEMENT catalog (book)*> <!--звездочка * в этом случае работает как и в регулярных выражениях 0..n-->
+        <!ELEMENT book (author|title|genre|price|publich_date)*>
+        <!ELEMENT author (#PCDATA)> <!--PCDATA говорит о том, что используются обычные данные-->
+        <!ELEMENT title (#PCDATA)> <!--CDATA можно использовать операторы-->
+        <!ELEMENT genre (#PCDATA)>
+        <!ELEMENT price (#PCDATA)>
+        <!ATTLIST price
+                currency CDATA #IMPLIED> <!--IMPLIED говорит о том, что currency может быть указана или не указана-->
+        <!ELEMENT publich_date (#PCDATA)>
+        ]>
+<catalog>
+    <book>
+        <author>A</author>
+        <title>TitleA</title>
+        <genre>Computer</genre>
+        <price currency="USA">40</price>
+        <publich_date>2018-02-02</publich_date>
+    </book>
+    <book>
+        <author>B</author>
+        <title>TitleB</title>
+        <genre>Computer</genre>
+        <price>30</price>
+        <publich_date>2018-01-01</publich_date>
+    </book>
+</catalog>

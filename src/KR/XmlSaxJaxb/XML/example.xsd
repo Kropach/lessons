@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="catalog" type="catalogType">
+    <xs:annotation>
+      <xs:documentation>DTD - Document Type Definitionзвездочка * в этом случае работает как и в регулярных выражениях 0..nPCDATA говорит о том, что используются обычные данныеCDATA можно использовать операторыIMPLIED говорит о том, что currency может быть указана или не указана</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="priceType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:string" name="currency" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="bookType">
+    <xs:sequence>
+      <xs:element name="author">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:pattern value="[a-zA-Z][a-zA-Z][a-zA-Z]"/>
+            <xs:pattern value="([a-zA-Z])+"/>
+            <xs:pattern value="([a-zA-Z]){7}"/>
+            <xs:enumeration value="A"/>
+            <xs:enumeration value="B"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="title">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="TitleA"/>
+            <xs:enumeration value="TitleB"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element type="xs:string" name="genre"/>
+      <xs:element type="priceType" name="price"/>
+      <xs:element name="publich_date">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="2018-02-02"/>
+            <xs:enumeration value="2018-01-01"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="catalogType">
+    <xs:sequence>
+      <xs:element type="bookType" name="book" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

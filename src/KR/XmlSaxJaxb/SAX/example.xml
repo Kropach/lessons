@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<phonebook>
+    <person>
+        <name>Aa</name>
+        <email>Aa@gmail.com</email>
+        <telephone>22-22</telephone>
+        <web>www.oracle.com</web>
+    </person>
+    <person>
+        <name>Bb</name>
+        <email>Bb@gmail.com</email>
+        <telephone>33-33</telephone>
+        <web>www.oracle.com</web>
+    </person>
+    <person>
+        <name>Cc</name>
+        <email>Cc@gmail.com</email>
+        <telephone>4-44</telephone>
+        <web>www.oracle.com</web>
+    </person>
+</phonebook>
